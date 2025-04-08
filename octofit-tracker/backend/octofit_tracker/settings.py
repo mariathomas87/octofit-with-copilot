@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-j&t@%0#_r&8^7o9f(zjoh%gk7pnxkcpt+!ho_1x0(0isgqi-50
 DEBUG = True
 
 # Update ALLOWED_HOSTS to include localhost and Codespace URL
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'congenial-robot-pwrx4jxpp9c6vjv-8000.app.github.dev']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'organic-giggle-5v65wpxw67x2p7rj-8000.app.github.dev']
 
 
 # Application definition

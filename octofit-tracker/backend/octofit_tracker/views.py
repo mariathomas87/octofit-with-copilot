@@ -6,12 +6,13 @@ from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, Lea
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    base_url = 'https://organic-giggle-5v65wpxw67x2p7rj-8000.app.github.dev/'
     return Response({
-        'users': 'http://localhost:8000/users/',
-        'teams': 'http://localhost:8000/teams/',
-        'activities': 'http://localhost:8000/activities/',
-        'leaderboard': 'http://localhost:8000/leaderboard/',
-        'workouts': 'http://localhost:8000/workouts/'
+        'users': base_url + 'users/',
+        'teams': base_url + 'teams/',
+        'activities': base_url + 'activities/',
+        'leaderboard': base_url + 'leaderboard/',
+        'workouts': base_url + 'workouts/'
     })
 
 class UserList(APIView):

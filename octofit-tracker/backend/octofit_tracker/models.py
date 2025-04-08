@@ -3,9 +3,11 @@ from bson import ObjectId
 
 class ObjectIdField(models.Field):
     def get_prep_value(self, value):
+        if not value:
+            return str(ObjectId())  # Generate a new ObjectId if value is empty or None
         if isinstance(value, ObjectId):
             return str(value)
-        return str(ObjectId()) if value is None else value
+        return value
 
     def from_db_value(self, value, expression, connection):
         if value is None:
@@ -37,6 +39,7 @@ class Leaderboard(models.Model):
     points = models.IntegerField()
 
 class Workout(models.Model):
+    _id = ObjectIdField(primary_key=True)  # Add _id field
     name = models.CharField(max_length=255)
     description = models.TextField()
     duration = models.IntegerField()

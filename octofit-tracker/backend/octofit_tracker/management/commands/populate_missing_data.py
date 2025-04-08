@@ -12,19 +12,19 @@ class Command(BaseCommand):
             team2, created2 = Team.objects.get_or_create(name='Gold Team', defaults={'_id': ObjectId()})
 
             Leaderboard.objects.bulk_create([
-                Leaderboard(team=team1, points=100),
-                Leaderboard(team=team2, points=90),
+                Leaderboard(_id=ObjectId(), team=team1, points=100),
+                Leaderboard(_id=ObjectId(), team=team2, points=90),
             ])
             self.stdout.write('Leaderboards populated successfully.')
 
         # Populate Workouts
         if Workout.objects.count() == 0:
             workouts = [
-                Workout(name='Cycling Training', description='Training for a road cycling event', duration=60),
-                Workout(name='Crossfit', description='Training for a crossfit competition', duration=120),
-                Workout(name='Running Training', description='Training for a marathon', duration=90),
-                Workout(name='Strength Training', description='Training for strength', duration=30),
-                Workout(name='Swimming Training', description='Training for a swimming competition', duration=75),
+                Workout(_id=ObjectId(), name='Cycling Training', description='Training for a road cycling event', duration=60),
+                Workout(_id=ObjectId(), name='Crossfit', description='Training for a crossfit competition', duration=120),
+                Workout(_id=ObjectId(), name='Running Training', description='Training for a marathon', duration=90),
+                Workout(_id=ObjectId(), name='Strength Training', description='Training for strength', duration=30),
+                Workout(_id=ObjectId(), name='Swimming Training', description='Training for a swimming competition', duration=75),
             ]
             Workout.objects.bulk_create(workouts)
             self.stdout.write('Workouts populated successfully.')
